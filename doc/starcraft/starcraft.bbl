@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{DBLP:journals/corr/JustesenR17}
+Niels Justesen and Sebastian Risi.
+\newblock Learning macromanagement in starcraft from replays using deep
+  learning.
+\newblock {\em CoRR}, abs/1707.03743, 2017.
+
+\bibitem{David_Silver:intro_RL}
+David Silver.
+\newblock Intruduction to reinforcement learning.
+\newblock
+  \url{http://101.96.8.165/www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/intro_RL.pdf},
+  2015.
+
+\bibitem{GitHub:bwapi}
+\url{https://github.com/bwapi/bwapi}.
+
+\bibitem{GitHub:torch}
+\url{http://torch.ch}.
+
+\bibitem{GitHub:TorchCraft}
+\url{https://github.com/TorchCraft/TorchCraft}.
+
+\bibitem{DBLP:journals/corr/SynnaeveNACLLRU16}
+Gabriel Synnaeve, Nantas Nardelli, Alex Auvolat, Soumith Chintala,
+  Timoth{\'{e}}e Lacroix, Zeming Lin, Florian Richoux, and Nicolas Usunier.
+\newblock Torchcraft: a library for machine learning research on real-time
+  strategy games.
+\newblock {\em CoRR}, abs/1611.00625, 2016.
+
+\bibitem{GitHub:torchcraft-py}
+\url{https://github.com/alibaba/torchcraft-py}.
+
+\end{thebibliography}

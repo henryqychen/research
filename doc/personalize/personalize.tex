@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{AR PL UKai CN}
+
+\usepackage{verbatim}
+\usepackage{amstext}
+\usepackage{indentfirst}
+\usepackage[left=1.5in,top=1in,right=1.5in,bottom=1in]{geometry}
+
+\begin{document}
+
+\title{个性化阅读升级}
+\author{cqy}
+\maketitle
+
+%
+\section{背景}
+\subsection{升级目标}
+使内容分发系统成为满足用户不同阅读需求的全面个性化系统
+\subsection{现状}
+\begin{enumerate}
+\item 文章来源以知名权威站点为主
+\item 分发系统本身没有考虑多元化需求
+\item 没有根据兴趣来进行排版，不能体现内容聚合的优势
+\item 兴趣tag不准，很多tag不是用户兴趣点，没有结构化
+\item 用户理解比较单薄，没有对用户的需求进行挖掘、推断
+\item 模型在时效性、实时特征、探索算法方面没有开展工作
+\end{enumerate}
+
+%
+\section{需求分析}
+\subsection{六个基本层次}
+\begin{enumerate}
+\item 生理刺激
+\item 娱乐休闲
+\item 信息获取
+\item 知识获取
+\item 审美情趣
+\item 思想进步
+\end{enumerate}
+
+以上是阅读产品主要满足的六大基本需求层次，由低到高反映了人们不同的文化程度、修养状态和价值取向。
+
+\subsection{需求和语义的关系}
+目前的标签体系主要是以语义来建立的，是两个不同的维度。部分语义标签就是需求，但是不能完全涵盖需求；频道的划分就是按需求划分的，但频道不都是标签。同一篇内容对不同用户有不同的需求。
+
+\subsection{需求和兴趣的关系}
+在内容聚合平台中，需求就是兴趣。
+
+\subsection{细分的需求}
+太多太复杂，不可穷举，只能按受众价值和产品定位的优先级去做。
+
+\subsection{分析结论}
+\subsubsection{内容聚合能满足的需求}
+生理型需求、娱乐休闲型需求（网络热点、花边报道、软新闻）、信息获取型需求（软、硬新闻、本地新闻）、知识获取型需求、部分社交型需求（非阅读需求）
+\subsubsection{内容聚合不能满足的需求}
+深度知识需求（教育、科研）、审美情趣需求、
+思想进步需求（通过深度阅读+冥想）
+
+\subsubsection{总结}
+大部分用户不在乎是人工推荐还是机器推荐，也不知道自己想看什么内容。但用户知道自己不喜欢看什么，一旦觉得不好看，用户会做出实际行动选择更好的替代品。
+所有用户都有多层次的阅读需求，内容平台要特别注意考虑满足同一用户高层次和低层次的阅读需求。
+\begin{eqnarray}
+\text{频道} \subseteq \text{需求} = \text{兴趣标签} \neq \text{语义标签}
+\end{eqnarray}
+
+%
+\section{体验分析}
+
+\subsection{中断}
+\subsection{负反馈}
+\subsection{心理体验}
+\subsubsection{兴趣转移}
+\subsubsection{兴趣厌烦}
+
+%
+\section{项目分解}
+\subsection{信息抽取}
+\subsection{文章流转机制}
+\subsection{兴趣轮换机制}
+\subsection{实时人群推断}
+\subsection{需求预估}
+\subsection{模型}
+\subsection{排序}
+
+\begin{comment}
+$$\sum_{p\rm\;prime}f(p) = \int_{t>1}f(t)d\pi(t).$$
+
+$$2\uparrow\uparrow k
+\mathrel{\mathop=^{\rm definition}}
+2^{2^{\cdot^{\cdot^{\cdot^2}}}}
+\vbox{\hbox{$\Big\}\scriptstyle k$}\kern0pt}.$$
+\end{comment}
+
+\end{document}
