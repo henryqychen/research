@@ -20,6 +20,7 @@
 \usepackage{clrscode3e}
 \usepackage{booktabs}
 \usepackage{url}
+\usepackage{mathrsfs}
 
 \begin{document}
 
@@ -126,13 +127,13 @@ This is a traditional and efficient method to reduce the complexity of game AI d
 
 \section{Modeling RTS Game}
 \subsection{Reinforcement Learning Framework}
-Reinforcement Learning (RL) is an area of machine learning inspired by behaviourist psychology, concerned with how agents should take actions in an environment so as to maximize some notion of cumulative reward.\\
-There are four main reseasons make RL quite different from other machine learning paradigms:\cite{David_Silver:intro_RL}
+Reinforcement Learning (RL) is an area of machine learning inspired by behaviourist psychology, concerned with how agents should take actions in an environment so as to maximize cumulative reward.\\
+There are four main reseasons make RL quite different from other machine learning paradigms\cite{David_Silver:intro_RL}:
 \begin{enumerate}
-\item There is no supervisor, only a reward signal
-\item Feedback is delayed, not instantaneous
-\item Time really matters (sequential, non i.i.d data)
-\item Agent’s actions affect the subsequent data it receives
+\item Unlike supervised-learning, there is no supervisor, only a reward signal
+\item Unlike online-learning, the feedback is delayed, not instantaneous
+\item The data is sequential (non i.i.d data), time really matters
+\item Agents' actions affect the subsequent data it receives
 \end{enumerate}
 RL focus on online performance, which involves finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge). The $E\&E$ trade-off in RL has been most thoroughly studied through the multi-armed bandit (MAB) problem and in finite MDPs.
 
@@ -140,17 +141,21 @@ RL focus on online performance, which involves finding a balance between explora
 \caption{Formal Definition of Reinforcement Learning\cite{David_Silver:intro_RL}}
 \centering
 \begin{tabular}{c c} % centered columns (4 columns)
-\hline Symbols & Explanation \\[0ex] \hline
-$a$ 	& agent \\
-$e$ 	& environment \\
-$t$ 	& timestamp, increments at each step \\
-$O_t^a$ & agent's observation(input) from environment at step $t$ \\
-$A_t^a$ & agent's actions(ouput) to environment at step $t$ \\
-$R_t^a$ & agent's reward from environment at step $t$, is a scalar feedback signal \\
-$S_t^a$ & agent's state at step $t$ \\
-$S_t^e$ & environment's state at step $t$ \\
+\hline Symbols & Discription \\[0ex] \hline
+$a$ & \emph{Agent}\\
+$e$ & \emph{Environment}\\
+$t$ & \emph{Timestamp}, increments at each step\\
+$O_t$ & agent's \emph{Observation} (input) from environment at step $t$\\
+$A_t$ & agent's \emph{Actions} (output) to environment at step $t$\\
+$R_t$ & agent's \emph{Reward} at step $t$, a scalar feedback signal\\
+$S_t^a$ & \emph{Agent's State} at step $t$\\
+$S_t^e$ & \emph{Environment's State} at step $t$\\
+$\pi$ & \emph{Policy}, the agent's behaviour function, $\pi(a \mid s)=\mathbb{P}[A_t=a \mid S_t = s]$\\
+$\mathcal{P}$ & \emph{Model} predicts the next state, $\mathcal{P}_{ss'}^a =\mathbb{P}[S_{t+1}=s' \mid S_t=s, A_t=a]$\\
+$\mathcal{R}$ & \emph{Model} to predicts the next reward, $\mathcal{R}_{s}^a =\mathbb{E}[R_{t+1} \mid S_t=s, A_t=a]$\\
+$v$ & \emph{Value Function} to evaluate states, $v_\pi(s)=\mathbb{E}_\pi[\sum_{i=1}^{+\infty}\gamma^{i}R_{t+i}\mid S_t=s]$\\
 \end{tabular}
-\label{table:srl}
+\label{table:formal_definition_of_RL}
 \end{table}
 
 \subsection{Inperfect Information Game}
