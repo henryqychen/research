@@ -1,26 +1,13 @@
 \documentclass[sigconf]{acmart}
 
-\usepackage[hyperfootnotes=true]{hyperref}
-\usepackage{siunitx}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{algorithm}
-\usepackage{algorithmic}
 \usepackage{clrscode3e}
-\usepackage{booktabs}
-\usepackage{url}
-\usepackage{mathrsfs}
 \usepackage{tabularx}
-\usepackage{tikz}
-\usetikzlibrary{graphs}
-\usepackage{booktabs} % For formal tables
 
 % Copyright
 %\setcopyright{none}
-%\setcopyright{acmcopyright}
+\setcopyright{acmcopyright}
 %\setcopyright{acmlicensed}
-\setcopyright{rightsretained}
+%\setcopyright{rightsretained}
 %\setcopyright{usgov}
 %\setcopyright{usgovmixed}
 %\setcopyright{cagov}
@@ -56,13 +43,13 @@
 \author{Qinyu Chen}
 %\authornote{}
 %\orcid{}
-%\affiliation{%
-%  \institution{Institute for Clarity in Documentation}
-%  \streetaddress{P.O. Box 1212}
-%  \city{Dublin} 
-%  \state{Ohio} 
-%  \postcode{43017-6221}
-%}
+\affiliation{%
+  \institution{}
+  \streetaddress{}
+  \city{BeiJing} 
+  \state{China} 
+  \postcode{}
+}
 \email{henryqychen@gmail.com}
 
 \begin{abstract}
@@ -71,21 +58,21 @@ ACM SIG Proceedings.
 %\footnote{This is an abstract footnote}
 \end{abstract}
 
-\keywords{StarCraft, Reinforcement Learning, Inperfect Information Game, Exploration and Exploitation, Markov Decision Process}
+\keywords{StarCraft, Reinforcement Learning, Inperfect Information Game, Exploration and Exploitation, Markov Decision Process, Generative Adversarial Networks}
 
 \maketitle
 
 %------------------------------
 
-\section{BACKGROUND}
-\subsection{What is StarCraft}
-\emph{StarCraft}$^\circledR$ is a classic military science fiction real-time strategy video game developed and published by Blizzard Entertainment$^\circledR$ in 1998.
+\section{Introduction}
+\subsection{The Game}
+\textbf{StarCraft$^\circledR$} is a famous military science fiction real-time strategy video game developed and published by \textbf{Blizzard Entertainment$^\circledR$} in 1998.
 \subsection{Why Choose StarCraft for AI Research}
 StarCraft has proven to be a challenging environment for artificial intelligence research. While hand-crafted strategies are still the state-of-art, the deep networks approach is able to express a wide range of different strategies and thus improving the network’s performance with deep reinforcement learning is an immediately promising avenue for future research.\cite{DBLP:journals/corr/JustesenR17}
-\subsubsection{Conveniences}
+\subsubsection{Advantages}
 \begin{itemize}
-\item Large-scale game replays data in the community
-\item Classic RTS game with perfect designed balance, competitiveness and purity
+\item Large-scale game replays data in communities
+\item Game with perfect designed balance, competitiveness and purity
 \end{itemize}
 
 \subsubsection{Challenges}
@@ -95,33 +82,37 @@ StarCraft has proven to be a challenging environment for artificial intelligence
 \item Memory preserving agent
 \item Inference both in time and space
 \item Multi-agent corporation
-\item High time efficiency
+\item High time efficiency engineering
 \end{itemize}
 
-\section{Online Resources}
-\subsection{Replays}
-\emph{GosuGamers}
-\footnote{\url{http://www.gosugamers.net/}},
-\emph{ICCup}
-\footnote{\url{https://iccup.com/}},
-\emph{TeamLiquid}
-\footnote{\url{http://www.teamliquid.net/}}
-\subsection{Competitions}
-\emph{AIIDE StarCraft AI Competition}
-\footnote{\url{https://sites.google.com/view/aiide2017/}},
-\emph{CIG StarCraft RTS AI Competition}
-\footnote{\url{https://ls11-www.cs.tu-dortmund.de/rts-competition/start}},
-\emph{Student StarCraft AI Competition}
-\footnote{\url{https://sscaitournament.com/}}
+\subsection{Online Resources}
+\subsubsection{Replays}
+\begin{itemize}
+\item \emph{GosuGamers}
+	  \footnote{\url{http://www.gosugamers.net}}
+\item \emph{ICCup}
+	  \footnote{\url{https://iccup.com}}
+\item \emph{TeamLiquid}
+	  \footnote{\url{http://www.teamliquid.net}}
+\end{itemize}
+\subsubsection{Competitions}
+\begin{itemize}
+\item \emph{AIIDE StarCraft AI Competition}
+	  \footnote{\url{https://sites.google.com/view/aiide2017}}
+\item \emph{CIG StarCraft RTS AI Competition}
+	  \footnote{\url{https://ls11-www.cs.tu-dortmund.de/rts-competition/start}}
+\item \emph{Student StarCraft AI Competition}
+	  \footnote{\url{https://sscaitournament.com}}
+\end{itemize}
 
 \section{Game AI}
 \subsection{Thread in Game AI}
 Usually there is only one thread to handle AI logic, otherwise there could be multi-threaded for computation and one thread for rendering.
 \subsection{Difficulty Level of Game AI design}
-The most difficult AI design is for sports game, which is very similar to robotics
-\begin{eqnarray}
+The most difficult AI design is for sports game, which is very similar to robotics.
+\begin{eqnarray*}
 MMO<FPS<RTS<Sports
-\end{eqnarray}
+\end{eqnarray*}
 
 \subsection{Traditional Game AI Methods}
 \subsubsection{State Machine}
@@ -129,9 +120,9 @@ MMO<FPS<RTS<Sports
 \subsubsection{Behavior Tree}
 
 \section{RTS Game AI}
-Real-time strategy(RTS) games have historaically been a domain of interest of the planning and decision making research communities.
+Real-time strategy (RTS) games have historaically been a domain of interest of the planning and decision making research communities.
 \subsection{Macromanagement AI}
-Or called General's AI which determine the time series of constructing buildings, conducting research, and producing units, among other things involving the intake and expending of resources. This is actually a form of micromanagement done to a relatively large number of units
+Or General's AI, which determine the time series of constructing buildings, conducting research, and producing units, among other things involving the intake and expending of resources. This is actually a form of micromanagement done to a relatively large number of units
 \subsubsection{Rule-based methods}
 Implemented by if-else.
 \begin{itemize}
@@ -146,7 +137,7 @@ Implemented by if-else.
 \end{itemize}
 
 \subsection{Agent AI}
-Or called Soldier's AI, human player's micro-operation.
+Or Soldier's AI, human player's micro-operation.
 
 \subsubsection{State Machine}
 Behaviors will be triggered in certain condition(environment, resource, time)
@@ -161,62 +152,64 @@ This is a traditional and efficient method to reduce the complexity of game AI d
 \section{Modeling RTS Game}
 \subsection{Reinforcement Learning Framework}
 Reinforcement Learning (RL) is an area of machine learning inspired by behaviourist psychology, concerned with how agents should take actions in an environment so as to maximize cumulative reward.\\
-There are four main reseasons make RL quite different from other machine learning paradigms\cite{David_Silver:intro_RL}:
-\begin{enumerate}
+There are four main reasons that make RL quite different from other machine learning paradigms:\cite{David_Silver:intro_RL}
+\begin{itemize}
 \item Unlike supervised-learning, there is no supervisor, only a reward signal
 \item Unlike online-learning, the feedback is delayed, not instantaneous
 \item The data is sequential (non i.i.d data), time really matters
 \item Agents' actions affect the subsequent data it receives
-\end{enumerate}
+\end{itemize}
 RL focus on online performance, which involves finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge). The $E\&E$ trade-off in RL has been most thoroughly studied through the multi-armed bandit (MAB) problem and in finite MDPs.
 
 \begin{table}[htb]
 \caption{Formal Definition of Reinforcement Learning\cite{David_Silver:intro_RL}}
 \centering
-\begin{tabular}{c c} % centered columns (4 columns)
-\hline Symbols & Discription \\[0ex] \hline
-$a$ & \emph{Agent}\\
-$e$ & \emph{Environment}\\
-$t$ & \emph{Timestamp}, increments at each step\\
-$O_t$ & agent's \emph{Observation} (input) from environment at step $t$\\
-$A_t$ & agent's \emph{Actions} (output) to environment at step $t$\\
+\begin{tabularx}{0.45\textwidth}{cX}
+\hline Symbols & Discription \\ \hline
+$a$ & \emph{Agent} \\
+$e$ & \emph{Environment} \\
+$t$ & \emph{Timestamp}, increments at each step \\
+$O_t$ & agent's \emph{Observation} (input) from environment at step $t$ \\
+$A_t$ & agent's \emph{Actions} (output) to environment at step $t$ \\
 $R_t$ & agent's \emph{Reward} at step $t$, a scalar feedback signal\\
-$S_t^a$ & \emph{Agent's State} at step $t$\\
-$S_t^e$ & \emph{Environment's State} at step $t$\\
-$\pi$ & \emph{Policy}, the agent's behaviour function, $\pi(a \mid s)=\mathbb{P}[A_t=a \mid S_t = s]$\\
-$\mathcal{P}$ & \emph{Model} predicts the next state, $\mathcal{P}_{ss'}^a =\mathbb{P}[S_{t+1}=s' \mid S_t=s, A_t=a]$\\
-$\mathcal{R}$ & \emph{Model} to predicts the next reward, $\mathcal{R}_{s}^a =\mathbb{E}[R_{t+1} \mid S_t=s, A_t=a]$\\
-$v$ & \emph{Value Function} to evaluate states, $v_\pi(s)=\mathbb{E}_\pi[\sum_{i=1}^{+\infty}\gamma^{i}R_{t+i} \mid S_t=s]$\\
-\end{tabular}
+$S_t^a$ & \emph{Agent's State} at step $t$ \\
+$S_t^e$ & \emph{Environment's State} at step $t$ \\
+$\pi$ & Given a state $s$ at step $t$, \emph{Policy} is the probability of agent's choice of action $a$,
+$\pi(a \mid s)=\mathbb{P}[A_t=a \mid S_t = s]$ \\
+$\mathcal{P}$ & Given a state $s$ and an action $a$ at step $t$, the model predicts the probability of next state $s'$, $\mathcal{P}_{ss'}^a =\mathbb{P}[S_{t+1}=s' \mid S_t=s, A_t=a]$ \\
+$\mathcal{R}$ & Given a state $s$ and an action $a$ at step $t$, the model predicts the expection of next reward, $\mathcal{R}_{s}^a =\mathbb{E}[R_{t+1} \mid S_t=s, A_t=a]$ \\
+$v$ & \emph{Value Function} is a prediction of expected future reward to evaluate the goodness/badness of states,
+$v_\pi(s)=\mathbb{E}_\pi[\sum\limits_{i=0}^{+\infty}\gamma^{i}R_{t+i+1} \mid S_t=s]$
+\end{tabularx}
 \label{table:formal_definition_of_RL}
 \end{table}
 
 \subsection{Inperfect Information Game}
 In full observability game, agent directly observes the environment stat, where:
 \begin{eqnarray}
-O_{t}^a=S_{t}^a=S_{t}^e
+O_{t}^a = S_{t}^a = S_{t}^e
 \end{eqnarray}
-As mentioned in 1.2.2, because of the game mechanisms: \emph{fog-of-war} and confusing magic(invisibility, hallucination, etc.), agents receive inperfect information from partially observed environment, which leads more challenging AI design than \emph{Chess} and \emph{Go}.
+As mentioned in 1.2.2, because of the game mechanisms: \emph{fog-of-war} and confusing magic (invisibility, hallucination, etc.), agents receive inperfect information from partially observed environment.
 \begin{eqnarray}
-S_{1,t}^{a} \neq S_{2,t}^{a}\\
+S_{1,t}^{a} \neq S_{2,t}^{a} \\
 S_{1,t}^{a} \cup S_{2,t}^{a} = S_t^e
 \end{eqnarray}
 
 \begin{figure}[htb]
 \centering
-\caption{1v1 Adversarial Reinforcement Learning Framework}
-\includegraphics[width=0.309\textwidth]{./img/Adversarial_Reinforcement_Learning.pdf}
+\caption{1v1 Adversarial RL Framework}
+\includegraphics[width=0.35\textwidth]{./img/Adversarial_Reinforcement_Learning.pdf}
 \end{figure}
 
 \section{Developing Environment}
 \subsection{Tools}
 \subsubsection{BWAPI}
-The Brood War Application Programming Interface(BWAPI) is a free and open source C++ framework used to interact with Starcraft: BroodWar$^\circledR$. Researchers can create AI agents to play the game.\cite{GitHub:bwapi}
+The Brood War Application Programming Interface (BWAPI) is a free and open source C++ framework used to interact with \textbf{Starcraft: BroodWar$^\circledR$}. Researchers can create AI agents to play the game.\cite{GitHub:bwapi}
 \subsubsection{Torch}
 \emph{Torch} is a scientific computing framework with wide support for machine learning algorithms that puts GPUs first.
 Torch is mainly implemented by \emph{LuaJIT}.\cite{GitHub:torch}
 \subsubsection{TorchCraft}
-\emph{TorchCraft} is a bridge between Torch and StarCraft.\cite{GitHub:TorchCraft}\cite{DBLP:journals/corr/SynnaeveNACLLRU16}
+\emph{TorchCraft} is a bridge between Torch and StarCraft.\cite{GitHub:TorchCraft,DBLP:journals/corr/SynnaeveNACLLRU16}
 \subsubsection{TorchCraft-Py}
 A Python wrapper for TorchCraft developed by Alibaba.\cite{GitHub:torchcraft-py}
 \subsubsection{gym}
@@ -227,9 +220,7 @@ An open source reinforcement framework
 \begin{figure}[htb]
 \caption{TorchCraft-based Client-Server Architecture}
 \centering
-\includegraphics
-[width=0.309\textwidth]
-{./img/Client_Server_Architecture.pdf}
+\includegraphics[width=0.45\textwidth]{./img/Client_Server_Architecture.pdf}
 \end{figure}
 
 \subsection{BWAPI}
@@ -275,7 +266,8 @@ $A[i+1] \gets A[i]$
 \subsection{}
 
 %------------------------------
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{starcraft} 
+
+\bibliographystyle{unsrt}
+\bibliography{starcraft}
 
 \end{document}
