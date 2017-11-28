@@ -1,69 +1,102 @@
-% This is based on the LLNCS.DEM the demonstration file of
-% the LaTeX macro package from Springer-Verlag
-% for Lecture Notes in Computer Science,
-% version 2.4 for LaTeX2e as of 16. April 2010
-%
-% See http://www.springer.com/computer/lncs/lncs+authors?SGWID=0-40209-0-0-0
-% for the full guidelines.
-
-\documentclass{llncs}
+\documentclass[sigconf]{acmart}
 
 \usepackage[hyperfootnotes=true]{hyperref}
-\usepackage{tabularx}
-\usepackage{tikz}
-\usetikzlibrary{graphs}
 \usepackage{siunitx}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{subfigure}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{clrscode3e}
 \usepackage{booktabs}
 \usepackage{url}
 \usepackage{mathrsfs}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{graphs}
+\usepackage{booktabs} % For formal tables
+
+% Copyright
+%\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+% DOI
+%\acmDOI{10.475/123_4}
+
+% ISBN
+%\acmISBN{123-4567-24-567/08/06}
+
+%Conference
+%\acmConference[WOODSTOCK'97]{ACM Woodstock %conference}{July 1997}{El
+%  Paso, Texas USA} 
+%\acmYear{1997}
+%\copyrightyear{2016}
+
+%\acmArticle{4}
+%\acmPrice{15.00}
+
+% These commands are optional
+%\acmBooktitle{Transactions of the ACM Woodstock conference}
+%\editor{Jennifer B. Sartor}
+%\editor{Theo D'Hondt}
+%\editor{Wolfgang De Meuter}
 
 \begin{document}
-
 \title{StarCraft AI Research Summary}
-\titlerunning{}  % abbreviated title(for running head)
+%\titlenote{}
+%\subtitle{}
+%\subtitlenote{}
 
 \author{Qinyu Chen}
-\authorrunning{} % abbreviated author list(for running head)
+%\authornote{}
+%\orcid{}
+%\affiliation{%
+%  \institution{Institute for Clarity in Documentation}
+%  \streetaddress{P.O. Box 1212}
+%  \city{Dublin} 
+%  \state{Ohio} 
+%  \postcode{43017-6221}
+%}
+\email{henryqychen@gmail.com}
 
-%%%% list of authors for the TOC (use if author list has to be modified)
-\tocauthor{}
+\begin{abstract}
+This paper provides a sample of a \LaTeX\ document which conforms, somewhat loosely, to the formatting guidelines for
+ACM SIG Proceedings.
+%\footnote{This is an abstract footnote}
+\end{abstract}
 
-\institute{
-\email{henryqychen@gmail.com},\\
-\texttt{BeiJing, China}
-}
+\keywords{StarCraft, Reinforcement Learning, Inperfect Information Game, Exploration and Exploitation, Markov Decision Process}
 
-\maketitle              % typeset the title of the contribution
+\maketitle
 
-%\begin{abstract}
-%\keywords{}
-%\end{abstract}
+%------------------------------
 
-\section{Why StarCraft?}
-\emph{StarCraft} has proven to be a challenging environment for artificial intelligence research. While hand-crafted strategies are still the state-of-art, the deep networks approach is able to
-express a wide range of different strategies and thus improving
-the network’s performance with deep reinforcement
-learning is an immediately promising avenue for future research.\cite{DBLP:journals/corr/JustesenR17}
-\subsection{Advantages}
-\begin{enumerate}
+\section{BACKGROUND}
+\subsection{What is StarCraft}
+\emph{StarCraft}$^\circledR$ is a classic military science fiction real-time strategy video game developed and published by Blizzard Entertainment$^\circledR$ in 1998.
+\subsection{Why Choose StarCraft for AI Research}
+StarCraft has proven to be a challenging environment for artificial intelligence research. While hand-crafted strategies are still the state-of-art, the deep networks approach is able to express a wide range of different strategies and thus improving the network’s performance with deep reinforcement learning is an immediately promising avenue for future research.\cite{DBLP:journals/corr/JustesenR17}
+\subsubsection{Conveniences}
+\begin{itemize}
 \item Large-scale game replays data in the community
 \item Classic RTS game with perfect designed balance, competitiveness and purity
-\end{enumerate}
+\end{itemize}
 
-\subsection{Challenges}
-\begin{enumerate}
-\item Enormous Search Space(10 times complexer than \emph{Go} of game states and actions)
+\subsubsection{Challenges}
+\begin{itemize}
+\item Enormous Search Space(10 times complexer than \emph{Go} by game states and actions)
 \item Partially observed environment
 \item Memory preserving agent
 \item Inference both in time and space
 \item Multi-agent corporation
 \item High time efficiency
-\end{enumerate}
+\end{itemize}
 
 \section{Online Resources}
 \subsection{Replays}
@@ -82,15 +115,15 @@ learning is an immediately promising avenue for future research.\cite{DBLP:journ
 \footnote{\url{https://sscaitournament.com/}}
 
 \section{Game AI}
-\subsection{Thread in game AI}
+\subsection{Thread in Game AI}
 Usually there is only one thread to handle AI logic, otherwise there could be multi-threaded for computation and one thread for rendering.
-\subsection{Difficulty level of game AI design}
+\subsection{Difficulty Level of Game AI design}
 The most difficult AI design is for sports game, which is very similar to robotics
 \begin{eqnarray}
 MMO<FPS<RTS<Sports
 \end{eqnarray}
 
-\subsection{Traditional game AI methods}
+\subsection{Traditional Game AI Methods}
 \subsubsection{State Machine}
 \subsubsection{Hierarchical State Machine}
 \subsubsection{Behavior Tree}
@@ -101,16 +134,16 @@ Real-time strategy(RTS) games have historaically been a domain of interest of th
 Or called General's AI which determine the time series of constructing buildings, conducting research, and producing units, among other things involving the intake and expending of resources. This is actually a form of micromanagement done to a relatively large number of units
 \subsubsection{Rule-based methods}
 Implemented by if-else.
-\begin{enumerate}
+\begin{itemize}
 \item TODO
-\end{enumerate}
+\end{itemize}
 
 \subsubsection{Advanced methods}
-\begin{enumerate}
+\begin{itemize}
 \item planner
 \item scoring system, power map
 \item machine learning methods
-\end{enumerate}
+\end{itemize}
 
 \subsection{Agent AI}
 Or called Soldier's AI, human player's micro-operation.
@@ -137,7 +170,7 @@ There are four main reseasons make RL quite different from other machine learnin
 \end{enumerate}
 RL focus on online performance, which involves finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge). The $E\&E$ trade-off in RL has been most thoroughly studied through the multi-armed bandit (MAB) problem and in finite MDPs.
 
-\begin{table}[H]
+\begin{table}[htb]
 \caption{Formal Definition of Reinforcement Learning\cite{David_Silver:intro_RL}}
 \centering
 \begin{tabular}{c c} % centered columns (4 columns)
@@ -153,7 +186,7 @@ $S_t^e$ & \emph{Environment's State} at step $t$\\
 $\pi$ & \emph{Policy}, the agent's behaviour function, $\pi(a \mid s)=\mathbb{P}[A_t=a \mid S_t = s]$\\
 $\mathcal{P}$ & \emph{Model} predicts the next state, $\mathcal{P}_{ss'}^a =\mathbb{P}[S_{t+1}=s' \mid S_t=s, A_t=a]$\\
 $\mathcal{R}$ & \emph{Model} to predicts the next reward, $\mathcal{R}_{s}^a =\mathbb{E}[R_{t+1} \mid S_t=s, A_t=a]$\\
-$v$ & \emph{Value Function} to evaluate states, $v_\pi(s)=\mathbb{E}_\pi[\sum_{i=1}^{+\infty}\gamma^{i}R_{t+i}\mid S_t=s]$\\
+$v$ & \emph{Value Function} to evaluate states, $v_\pi(s)=\mathbb{E}_\pi[\sum_{i=1}^{+\infty}\gamma^{i}R_{t+i} \mid S_t=s]$\\
 \end{tabular}
 \label{table:formal_definition_of_RL}
 \end{table}
@@ -164,18 +197,16 @@ In full observability game, agent directly observes the environment stat, where:
 O_{t}^a=S_{t}^a=S_{t}^e
 \end{eqnarray}
 As mentioned in 1.2.2, because of the game mechanisms: \emph{fog-of-war} and confusing magic(invisibility, hallucination, etc.), agents receive inperfect information from partially observed environment, which leads more challenging AI design than \emph{Chess} and \emph{Go}.
-\begin{figure}[H]
-\caption{1v1 Adversarial RL Framework}
-\centering
-\includegraphics
-[width=0.618\textwidth]
-{./img/Adversarial_Reinforcement_Learning.pdf}
-\end{figure}
-where:
 \begin{eqnarray}
 S_{1,t}^{a} \neq S_{2,t}^{a}\\
 S_{1,t}^{a} \cup S_{2,t}^{a} = S_t^e
 \end{eqnarray}
+
+\begin{figure}[htb]
+\centering
+\caption{1v1 Adversarial Reinforcement Learning Framework}
+\includegraphics[width=0.309\textwidth]{./img/Adversarial_Reinforcement_Learning.pdf}
+\end{figure}
 
 \section{Developing Environment}
 \subsection{Tools}
@@ -193,11 +224,11 @@ An open source reinforcement framework
 \subsubsection{gym-starcraft}
 
 \subsection{Architecture}
-\begin{figure}[H]
+\begin{figure}[htb]
 \caption{TorchCraft-based Client-Server Architecture}
 \centering
 \includegraphics
-[width=0.618\textwidth]
+[width=0.309\textwidth]
 {./img/Client_Server_Architecture.pdf}
 \end{figure}
 
@@ -239,13 +270,12 @@ $A[i+1] \gets A[i]$
 \li $A[i+1] \gets \id{key}$
 \End
 \end{codebox}
-%------------------------------
 
 \section{Micromanagement AI}
 \subsection{}
 
-% ---- Bibliography ----
-\bibliographystyle{unsrt}% plain, unsrt, alpha, abbrv
-\bibliography{starcraft}
+%------------------------------
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{starcraft} 
 
 \end{document}
